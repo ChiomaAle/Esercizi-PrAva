@@ -38,21 +38,13 @@ int main()
     int len = p.size();
     print(p);
 
-    for (int i = 0; i < 2; ++i)
-        p.insert(getIt(p, rand() % len + 1), 1, "Arti");
     for (int i = 0; i < 3; ++i)
-        p.insert(getIt(p, rand() % len + 1), 1, "Giovanni");
+        p.insert(getIt(p, rand() % len++), "Paolo");
+    for (int i = 0; i < 3; ++i)
+        p.insert(getIt(p, rand() % len++), "Giovanni");
     print(p);
 
-    list<string>::iterator fin = p.begin();
-    list<string>::iterator mid = p.begin();
-    for (int i = 0; i < 7; ++i)
-    {
-        ++fin;
-        if (i < 3)
-            ++mid;
-    }
-    rotate(p.begin(), mid, fin);
+    rotate(p.begin(), getIt(p, 3), getIt(p, 7));
     print(p);
 
     string s1 = "Paolo";
@@ -70,14 +62,12 @@ int main()
      * compresi tra i due iteratori passati; è per questo che noi inseriamo
      * remove() come primo parametro di p.erase().
      */
-    p.erase(
-        remove(p.begin(), getIt(p, 6), "Franco")),
-        p.end();
+    p.erase(remove(p.begin(), getIt(p, 6), "Franco"),getIt(p, 6));
     print(p);
 
     for_each(p.begin(), p.end(),
              [](string s) {
-                 if (s.length() <= 5)
+                 if (s.length() < 6)
                      cout << s << " ";
              });
 
