@@ -4,6 +4,7 @@ using namespace std;
 
 void stampaOrdineDEC(map<string, int>& parcheggi) 
 {
+    // https://cplusplus.com/reference/map/multimap/
     // una multimap è ordinata in ordine decrescente // no ho appena provato ed una multimap 
     // rispetto alla chiave                          //è ordinata in ordine crescente come una map normale
     multimap<int, string> _p;   
