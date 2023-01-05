@@ -4,8 +4,8 @@ using namespace std;
 
 void stampaOrdineDEC(map<string, int>& parcheggi) 
 {
-    // una multimap è ordinata in ordine decrescente
-    // rispetto alla chiave
+    // una multimap è ordinata in ordine decrescente // no ho appena provato ed una multimap 
+    // rispetto alla chiave                          //è ordinata in ordine crescente come una map normale
     multimap<int, string> _p;   
     for (auto it = parcheggi.begin(); it != parcheggi.end(); ++it) {
         _p.insert({it->second, it->first});
